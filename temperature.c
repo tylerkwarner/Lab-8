@@ -1,13 +1,13 @@
-#include <stdio.h>
+include <stdio.h>
 #include <ctype.h>
 
-// Conversion functions
+
 double toCelsius(double temp, char scale) {
     switch (toupper(scale)) {
         case 'C': return temp;
         case 'F': return (temp - 32) * 5.0 / 9.0;
         case 'K': return temp - 273.15;
-        default: return 0.0; // invalid input
+        default: return 0.0; 
     }
 }
 
@@ -16,8 +16,7 @@ double fromCelsius(double tempC, char scale) {
         case 'C': return tempC;
         case 'F': return tempC * 9.0 / 5.0 + 32;
         case 'K': return tempC + 273.15;
-        default: return 0.0; // invalid input
-    }
+        default: return 0.0; 
 }
 
 const char* categorize(double tempC) {
@@ -62,19 +61,19 @@ int main(void) {
         return 1;
     }
 
-    // Convert input temperature to Celsius first
+    
     double tempC = toCelsius(temp, from);
     if (from == 'K' && temp < 0) {
         printf("Invalid temperature: Kelvin cannot be negative.\n");
         return 1;
     }
 
-    // Convert Celsius to target
+   
     double result = fromCelsius(tempC, to);
 
     printf("Converted temperature: %.2f %c\n", result, to);
 
-    // Categorize and provide advisory in Celsius scale
+    
     const char* category = categorize(tempC);
     printf("Temperature category: %s\n", category);
     printf("Weather advisory: %s\n", advisory(category));
