@@ -6,9 +6,8 @@ int main(void) {
     while (1) {
         printf("Enter the NFL score (Enter 1 to stop): ");
         if (scanf("%d", &score) != 1) {
-            // Handle non-integer input
             printf("Invalid input. Please enter a valid integer.\n");
-            while (getchar() != '\n'); // clear input buffer
+            while (getchar() != '\n'); 
             continue;
         }
 
